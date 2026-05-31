@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: MrChatBiAgent
+
+chatbi:
+  llm:
+    # 使用 MiniMax2.7 模型
+    model: minimax2.7
+    # MiniMax API Key (请替换为你的实际API Key)
+    api-key: ${MINIMAX_API_KEY:your-api-key-here}
+    # MiniMax API Base URL
+    base-url: https://api.minimax.chat/v1
+    # 生成参数
+    temperature: 0.7
+    max-tokens: 2000
+
+  planner:
+    # 意图分类置信度阈值
+    confidence-threshold: 0.7
+    # 最大历史消息数
+    max-history-size: 50
+    # 最大计划步骤数
+    max-plan-steps: 10
+
+  retry:
+    # 最大重试次数
+    max-attempts: 3
+    # 退避时间(毫秒)
+    backoff-ms: 1000
